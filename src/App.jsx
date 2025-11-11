@@ -1,36 +1,25 @@
-import { useRef } from "react";
-import { firestore } from "./firebase";
-import { addDoc, collection } from "@firebase/firestore";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
+// containers
+import Home from "./containers/Home";
+import Checkout from "./containers/Checkout";
+import SignIn from "./containers/Sign-in";
+
+// components
+import Navbar from "./components/navbar/Navbar";
+
 function App() {
-  const messageRef = useRef();
-  const ref = collection(firestore, "messages");
-
-  const handleSave = async (e) => {
-    e.preventDefault();
-    console.log(messageRef.current.value);
-
-    let data = {
-      message: messageRef.current.value,
-    };
-
-    try {
-      addDoc(ref, data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   return (
     <>
-      <div>
-        <form onSubmit={handleSave}>
-          <label>Enter message</label>
-          <input type="text" ref={messageRef} />
-          <button type="submit">Save</button>
-        </form>
-      </div>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/sign-in" element={<SignIn />} />
+        </Routes>
+      </Router>
     </>
   );
 }
