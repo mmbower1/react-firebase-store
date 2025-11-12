@@ -1,12 +1,14 @@
 // Import the functions you need from the SDKs you need
+// import { useEffect } from "react";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore, doc, getDoc, setDoc } from "@firebase/firestore";
 import {
   getAuth,
-  signInWithRedirect,
+  signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
+  createUserWithEmailAndPassword,
 } from "firebase/auth";
 
 // Your web app's Firebase configuration
@@ -26,8 +28,9 @@ export const app = initializeApp(firebaseConfig);
 getAnalytics(app);
 export const firestore = getFirestore(app);
 
-// adds user to firebase db
-export const createUserDoc = async (userAuth) => {
+// adds a user to firebase db via google auth
+export const createUserDoc = async (userAuth, additionalInfo = {}) => {
+  if (!userAuth) return;
   const userDocRef = doc(firestore, "users", userAuth.uid);
   // console.log(userDocRef);
   const userSnapShot = await getDoc(userDocRef);
@@ -41,6 +44,7 @@ export const createUserDoc = async (userAuth) => {
         displayName,
         email,
         createdAt,
+        ...additionalInfo,
       });
     } catch (error) {
       console.log("Error creating the user!", error.message);
@@ -50,10 +54,28 @@ export const createUserDoc = async (userAuth) => {
   return userDocRef;
 };
 
+export const auth = getAuth();
+
+// create a user with any normal email and password
+export const createAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+  return await createUserWithEmailAndPassword(auth, email, password);
+};
+
+// sign in existing account with email and password
+export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+  return await signInWithEmailAndPassword(auth, email, password);
+};
+
 // Initialize google auth
-const provider = new GoogleAuthProvider();
-provider.setCustomParameters({
+const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({
   prompt: "select_account",
 });
-export const auth = getAuth();
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+
+export const googlePopupSignIn = () => {
+  signInWithPopup(auth, googleProvider);
+};
+// export const googleRedirectSignIn = () =>
+//   signInWithRedirect(auth, googleProvider);

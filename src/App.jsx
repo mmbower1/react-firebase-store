@@ -4,7 +4,7 @@ import "./App.css";
 // containers
 import Home from "./containers/Home";
 import Checkout from "./containers/Checkout";
-import SignIn from "./containers/Sign-in";
+import Authentication from "./containers/auth/Auth";
 
 // components
 import Navbar from "./components/navbar/Navbar";
@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/auth" element={<Authentication />} />
         </Routes>
       </Router>
     </>
