@@ -6,13 +6,13 @@ import ShoppingIcon from "../../assets/shopping-bag.svg";
 import { CartContext } from "../../contexts/Cart";
 
 const CartIcon = () => {
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
   const toggleCart = () => setIsCartOpen(!isCartOpen);
 
   return (
     <div className="cart-icon-container" onClick={toggleCart}>
       <img src={ShoppingIcon} alt="Shopping Icon" />
-      <span className="item-count">0</span>
+      <span className="item-count">{cartCount}</span>
     </div>
   );
 };
