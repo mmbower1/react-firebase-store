@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
+import "./CartDropdown.styles.scss";
 import { useNavigate } from "react-router-dom";
-// import "./CartDropdown.styles.scss";
 
 // components
 import Button from "../button/Button";
