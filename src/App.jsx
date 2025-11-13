@@ -3,7 +3,7 @@ import "./App.css";
 
 // containers
 import Home from "./containers/Home";
-import Checkout from "./containers/Checkout";
+import Checkout from "./containers/checkout/Checkout";
 import Authentication from "./containers/auth/Auth";
 import Shop from "./containers/shop/Shop";
 
