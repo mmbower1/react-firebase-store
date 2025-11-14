@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./CartDropdown.styles.scss";
+// import "./CartDropdown.styles.scss";
 import { useNavigate } from "react-router-dom";
 
 // components
