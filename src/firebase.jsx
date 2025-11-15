@@ -2,7 +2,16 @@
 // import { useEffect } from "react";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore, doc, getDoc, setDoc } from "@firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  writeBatch,
+  query,
+  getDocs,
+} from "@firebase/firestore";
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -27,6 +36,45 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 getAnalytics(app);
 export const firestore = getFirestore(app);
+// export const db = getFirestore();
+
+export const auth = getAuth();
+
+// push data collection into firebase
+export const addCollectionAndDocs = async (collectionKey, objectsToAdd) => {
+  const collectionRef = collection(firestore, collectionKey);
+  const batch = writeBatch(firestore);
+  objectsToAdd.forEach((object) => {
+    const docRef = doc(collectionRef, object.title.toLowerCase());
+    batch.set(docRef, object);
+  });
+  await batch.commit();
+  console.log("batch done");
+};
+// pull firebase collection into UI
+export const getCategoriesAndDocs = async () => {
+  const collectionRef = collection(firestore, "categories");
+  const q = query(collectionRef);
+  const querySnapshot = await getDocs(q);
+  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const { title, items } = docSnapshot.data();
+    acc[title.toLowerCase()] = items;
+    return acc;
+  }, {});
+  return categoryMap;
+};
+
+// create a user with any normal email and password
+export const createAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+  return await createUserWithEmailAndPassword(auth, email, password);
+};
+
+// sign in existing account with email and password
+export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+  return await signInWithEmailAndPassword(auth, email, password);
+};
 
 // adds a user to firebase db via google auth
 export const createUserDoc = async (userAuth, additionalInfo = {}) => {
@@ -52,20 +100,6 @@ export const createUserDoc = async (userAuth, additionalInfo = {}) => {
   }
   // true
   return userDocRef;
-};
-
-export const auth = getAuth();
-
-// create a user with any normal email and password
-export const createAuthUserWithEmailAndPassword = async (email, password) => {
-  if (!email || !password) return;
-  return await createUserWithEmailAndPassword(auth, email, password);
-};
-
-// sign in existing account with email and password
-export const signInAuthUserWithEmailAndPassword = async (email, password) => {
-  if (!email || !password) return;
-  return await signInWithEmailAndPassword(auth, email, password);
 };
 
 // Initialize google auth
