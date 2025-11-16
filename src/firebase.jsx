@@ -18,6 +18,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 
 // Your web app's Firebase configuration
@@ -52,7 +53,7 @@ export const addCollectionAndDocs = async (collectionKey, objectsToAdd) => {
   console.log("batch done");
 };
 // pull firebase collection into UI
-export const getCategoriesAndDocs = async () => {
+export const getProductsAndDocs = async () => {
   const collectionRef = collection(firestore, "categories");
   const q = query(collectionRef);
   const querySnapshot = await getDocs(q);
@@ -75,6 +76,9 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
   return await signInWithEmailAndPassword(auth, email, password);
 };
+
+// sign out user
+export const signOutUser = async () => await signOut(auth);
 
 // adds a user to firebase db via google auth
 export const createUserDoc = async (userAuth, additionalInfo = {}) => {

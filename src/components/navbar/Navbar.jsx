@@ -1,6 +1,6 @@
 import { React, Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
-
+import { signOutUser } from "../../firebase";
 import "./navigation.styles.scss";
 import logo from "../../assets/eagles-logo-pin-badge.png";
 
@@ -10,11 +10,17 @@ import CartDropdown from "../cart-dropdown/CartDropdown";
 
 // contexts
 import { CartContext } from "../../contexts/Cart";
-// import { UserContext } from "../../contexts/User";
+import { UserContext } from "../../contexts/Users";
+import { signOut } from "firebase/auth";
 
 const Navbar = () => {
-  // const { currentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
+
+  const signOutHandler = async () => {
+    await signOutUser();
+    setCurrentUser(null);
+  };
 
   return (
     <Fragment>
@@ -26,9 +32,16 @@ const Navbar = () => {
           <Link className="nav-link" to="/shop">
             SHOP
           </Link>
-          <Link className="nav-link" to="/auth">
-            SIGN IN
-          </Link>
+          {currentUser ? (
+            <span className="nav-link" onClick={signOutHandler}>
+              SIGN OUT
+            </span>
+          ) : (
+            <Link className="nav-link" to="/auth">
+              SIGN IN
+            </Link>
+          )}
+
           {/* <Link className="nav-link" to="/checkout">
             SHOP
           </Link> */}
