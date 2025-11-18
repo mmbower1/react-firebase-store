@@ -109,10 +109,37 @@ const SHOP_DATA = [
           "https://fanatics.frgimages.com/philadelphia-eagles/youth-philadelphia-eagles-lesean-mccoy-nike-midnight-green-team-color-game-jersey_pi787000_ff_787764_xl.jpg?_hv=2",
         price: 80,
       },
+      {
+        id: 9,
+        name: "M. Vick jersey",
+        imageUrl:
+          "https://fanatics.frgimages.com/philadelphia-eagles/nike-michael-vick-philadelphia-eagles-youth-game-jersey-white_pi787000_ff_787769_xl.jpg?_hv=2",
+        price: 80,
+      },
+      {
+        id: 9,
+        name: "B. Dawkins jersey",
+        imageUrl: "https://i.ebayimg.com/images/g/frEAAOSw4qdl6pLI/s-l1200.jpg",
+        price: 80,
+      },
+      {
+        id: 9,
+        name: "D. Jackson jersey",
+        imageUrl:
+          "https://fanatics.frgimages.com/philadelphia-eagles/mens-nike-desean-jackson-midnight-green-philadelphia-eagles-game-player-jersey_pi3465000_altimages_ff_3465539-5b480fa77bd55be12a49alt1_full.jpg?_hv=2&w=1018",
+        price: 80,
+      },
+      {
+        id: 9,
+        name: "R. White jersey",
+        imageUrl:
+          "https://fanatics.frgimages.com/philadelphia-eagles/mens-mitchell-and-ness-reggie-white-green-philadelphia-eagles-authentic-throwback-retired-player-jersey_pi3614000_altimages_ff_3614858-840b901c61efb07036c2alt1_full.jpg?_hv=2&w=1018",
+        price: 80,
+      },
     ],
   },
   {
-    title: "Jackets &Hoodies",
+    title: "Jackets",
     items: [
       {
         id: 1,

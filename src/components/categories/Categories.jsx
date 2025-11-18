@@ -14,7 +14,8 @@ const categories = [
   {
     id: 2,
     title: "Rings",
-    imageUrl: "https://i.ebayimg.com/images/g/rRAAAeSw6u9ovGAA/s-l400.jpg",
+    imageUrl:
+      "https://www.delawareonline.com/gcdn/authoring/authoring-images/2025/07/19/PWIL/85291715007-inside-shank-2.jpg?width=700&height=700&fit=crop&format=pjpg&auto=webp",
   },
   {
     id: 3,
@@ -24,7 +25,7 @@ const categories = [
   },
   {
     id: 4,
-    title: "Jackets &Hoodies",
+    title: "Jackets",
     imageUrl:
       "https://www.jacketsjunction.com/wp-content/uploads/2025/03/Starter-Eagles-Jacket-Black.webp",
   },
