@@ -42,9 +42,13 @@ const CartDropdown = () => {
             overflow: "scroll",
           }}
         >
-          {cartItems.map((item) => (
-            <CartItem key={item.id} cartItem={item} />
-          ))}
+          {cartItems.length ? (
+            cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
+          ) : (
+            <span className="cart-empty">Your cart is empty</span>
+          )}
+          <br />
+          <br />
           <Button onClick={goToCheckoutPage}>GO TO CHECKOUT</Button>
         </div>
       </div>

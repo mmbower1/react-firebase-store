@@ -1,6 +1,6 @@
 .directory-item-container {
   min-width: 30%;
-  height: 340px;
+  height: 440px;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
@@ -63,6 +63,17 @@
     p {
       font-weight: lighter;
       font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .directory-item-container {
+    height: 300px;
+
+    .body {
+      height: 80px;
+      padding: 0 5px;
     }
   }
 }

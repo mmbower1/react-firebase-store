@@ -4,3 +4,10 @@
   margin: 30px auto;
   width: 900px;
 }
+
+@media (max-width: 815px) {
+  .auth-container {
+    margin: 0 auto;
+    display: grid;
+  }
+}
