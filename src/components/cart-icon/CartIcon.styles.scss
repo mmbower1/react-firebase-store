@@ -19,3 +19,10 @@
     bottom: 12px;
   }
 }
+
+@media (max-width: 768px) {
+  .cart-icon-container {
+    width: 30px;
+    height: 30px;
+  }
+}
