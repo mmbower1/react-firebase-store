@@ -9,6 +9,7 @@ import Shop from "./containers/shop/Shop";
 
 // components
 import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/auth" element={<Authentication />} />
           <Route path="/shop/*" element={<Shop />} />
         </Routes>
+        <Footer />
       </Router>
       {/* </ProductsProvider> */}
     </>
