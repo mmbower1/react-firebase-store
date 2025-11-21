@@ -21,3 +21,13 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .cart-item-container {
+    .item-details {
+      .name {
+        font-size: 12px;
+      }
+    }
+  }
+}
