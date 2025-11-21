@@ -29,7 +29,7 @@ const CartDropdown = () => {
           border: "1px solid black",
           backgroundColor: "white",
           top: "160px",
-          right: "80px",
+          right: "25px",
           zIndex: 5,
         }}
       >
