@@ -21,7 +21,7 @@ const CartDropdown = () => {
         className="cart-dropdown-container"
         style={{
           position: "absolute",
-          width: "320px",
+          width: "365px",
           height: "400px",
           display: "flex",
           flexDirection: "column",

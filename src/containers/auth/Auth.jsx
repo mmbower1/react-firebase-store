@@ -9,6 +9,10 @@ const Authentication = () => {
   return (
     <div className="auth-container">
       <SignInForm />
+      <br />
+      <br />
+      <br />
+      <br />
       <SignupForm />
       {/* <button onClick={googleRedirectSignIn}>
         Sign in with Google Redirect

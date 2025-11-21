@@ -32,3 +32,9 @@
   //   margin-top: auto;
   // }
 }
+
+@media (max-width: 768px) {
+  .cart-dropdown-container {
+    width: 20px;
+  }
+}
