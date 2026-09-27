@@ -2,7 +2,7 @@ import React from "react";
 import "./CartItem.styles.scss";
 
 const CartItem = ({ cartItem }) => {
-  const { name, imageUrl, price, quantity } = cartItem;
+  const { name, imageUrl, price, quantity, size } = cartItem;
   return (
     <div className="cart-item-container">
       <img src={imageUrl} alt={`${name}`} />
@@ -11,6 +11,7 @@ const CartItem = ({ cartItem }) => {
         <span className="price">
           {quantity} for ${quantity * price}
         </span>
+        {size && <span className="size">Size: {size}</span>}
       </div>
     </div>
   );

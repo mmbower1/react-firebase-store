@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import { getCartKey } from "../utils/cart";
 
 // import PRODUCTS from "../../shop-data.json";
 
@@ -14,12 +15,13 @@ export const CartContext = createContext({
 });
 
 const addCartItem = (cartItems, productToAdd) => {
+  const key = getCartKey(productToAdd);
   const existingCartItem = cartItems.find(
-    (cartItem) => cartItem.id === productToAdd.id
+    (cartItem) => getCartKey(cartItem) === key
   );
   if (existingCartItem) {
     return cartItems.map((cartItem) =>
-      cartItem.id === productToAdd.id
+      getCartKey(cartItem) === key
         ? { ...cartItem, quantity: cartItem.quantity + 1 }
         : cartItem
     );
@@ -28,21 +30,23 @@ const addCartItem = (cartItems, productToAdd) => {
 };
 
 const removeCartItem = (cartItems, productToRemove) => {
+  const key = getCartKey(productToRemove);
   const existingCartItem = cartItems.find(
-    (cartItem) => cartItem.id === productToRemove.id
+    (cartItem) => getCartKey(cartItem) === key
   );
   if (existingCartItem.quantity === 1) {
-    return cartItems.filter((cartItem) => cartItem.id != productToRemove);
+    return cartItems.filter((cartItem) => getCartKey(cartItem) !== key);
   }
   return cartItems.map((cartItem) =>
-    cartItem.id === productToRemove.id
+    getCartKey(cartItem) === key
       ? { ...cartItem, quantity: cartItem.quantity - 1 }
       : cartItem
   );
 };
 
 const clearCartItem = (cartItems, cartItemToClear) => {
-  return cartItems.filter((cartItem) => cartItem.id != cartItemToClear.id);
+  const key = getCartKey(cartItemToClear);
+  return cartItems.filter((cartItem) => getCartKey(cartItem) !== key);
 };
 
 export const CartProvider = ({ children }) => {

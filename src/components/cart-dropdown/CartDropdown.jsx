@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../button/Button";
 import CartItem from "../cart-item/CartItem";
 import { CartContext } from "../../contexts/Cart";
+import { getCartKey } from "../../utils/cart";
 
 const CartDropdown = () => {
   const { cartItems } = useContext(CartContext);
@@ -43,7 +44,9 @@ const CartDropdown = () => {
           }}
         >
           {cartItems.length ? (
-            cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
+            cartItems.map((item) => (
+              <CartItem key={getCartKey(item)} cartItem={item} />
+            ))
           ) : (
             <span className="cart-empty">Your cart is empty</span>
           )}

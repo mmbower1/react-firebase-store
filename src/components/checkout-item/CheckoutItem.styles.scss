@@ -24,6 +24,13 @@
 
   .name {
     font-size: 17px;
+
+    .size {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      color: #666;
+    }
   }
 
   .quantity {
