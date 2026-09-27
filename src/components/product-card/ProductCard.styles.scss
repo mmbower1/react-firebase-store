@@ -60,7 +60,7 @@
     gap: 10px;
     padding: 12px 14px 14px;
     border-top: 1px solid #f0f0f0;
-    font-size: 13px;
+    font-size: 15px;
 
     .product-card-info {
       display: flex;
@@ -85,13 +85,13 @@
       flex-wrap: wrap;
 
       .size-btn {
-        min-width: 32px;
-        height: 28px;
+        min-width: 34px;
+        height: 30px;
         padding: 0 8px;
         border: 1px solid #ddd;
         background: white;
         border-radius: 4px;
-        font-size: 11px;
+        font-size: 12px;
         cursor: pointer;
         transition: all 0.2s ease;
 
@@ -109,7 +109,7 @@
 
     .size-error {
       color: #c0392b;
-      font-size: 11px;
+      font-size: 12px;
     }
   }
 }
@@ -122,10 +122,18 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .product-card-container {
+    .product-card-footer {
+      font-size: 14px;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .product-card-container {
     .product-card-footer {
-      font-size: 11px;
+      font-size: 12px;
     }
   }
 }

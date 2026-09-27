@@ -9,7 +9,6 @@ import { ProductContext } from "../../contexts/Products";
 
 const CategoriesPreview = () => {
   const { productsMap } = useContext(ProductContext);
-  console.log(productsMap);
   return (
     <Fragment>
       {Object.keys(productsMap).map((title) => {
@@ -18,7 +17,7 @@ const CategoriesPreview = () => {
           <CategoryPreview key={title} title={title} products={products} />
         );
       })}
-      <div className="products-container"></div>;
+      <div className="products-container"></div>
     </Fragment>
   );
 };
