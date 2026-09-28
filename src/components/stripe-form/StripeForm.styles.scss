@@ -1,0 +1,12 @@
+.stripe-form-container {
+  align-items: center;
+  display: flex;
+  height: 300px;
+  flex-direction: column;
+  justify-content: center;
+
+  .form {
+    height: 100px;
+    min-width: 500px;
+  }
+}

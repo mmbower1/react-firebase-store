@@ -2,9 +2,9 @@ import React, { useState, useContext } from "react";
 import "./SignIn.styles.scss";
 
 import {
-  googlePopupSignIn,
+  // googlePopupSignIn,
   signInAuthUserWithEmailAndPassword,
-  createUserDoc,
+  // createUserDoc,
 } from "../../firebase";
 
 // components
@@ -26,11 +26,11 @@ const SignInForm = () => {
   const { setCurrentUser } = useContext(UserContext);
 
   // log a user to firebase via google auth
-  const logGoogleUser = async () => {
-    const { user } = await googlePopupSignIn();
-    await createUserDoc(user);
-    console.log(user);
-  };
+  // const logGoogleUser = async () => {
+  //   const { user } = await googlePopupSignIn();
+  //   await createUserDoc(user);
+  //   console.log(user);
+  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -86,7 +86,11 @@ const SignInForm = () => {
           <Button buttonType="default" type="submit">
             Sign In
           </Button>
-          <Button onClick={logGoogleUser} buttonType="google" type="button">
+          <Button
+            // onClick={logGoogleUser}
+            buttonType="google"
+            type="button"
+          >
             Google Sign In
           </Button>
         </div>

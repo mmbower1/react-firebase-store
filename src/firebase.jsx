@@ -102,7 +102,6 @@ export const createUserDoc = async (userAuth, additionalInfo = {}) => {
       console.log("Error creating the user!", error.message);
     }
   }
-  // true
   return userDocRef;
 };
 

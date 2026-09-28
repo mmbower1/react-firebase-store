@@ -3,6 +3,7 @@ import "./Checkout.styles.scss";
 
 // components
 import CheckoutItem from "../../components/checkout-item/CheckoutItem";
+import StripeForm from "../../components/stripe-form/StripeForm";
 // contexts
 import { CartContext } from "../../contexts/Cart";
 import { getCartKey } from "../../utils/cart";
@@ -34,6 +35,7 @@ const Checkout = () => {
         );
       })}
       <span className="total">Total: ${cartTotal}</span>
+      <StripeForm />
     </div>
   );
 };
