@@ -32,6 +32,10 @@
       transform: translateX(-50%);
       width: 80%;
       min-width: 0;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 8px;
+      white-space: nowrap;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.2s ease;
@@ -132,6 +136,14 @@
 
 @media (max-width: 768px) {
   .product-card-container {
+    .product-card-image button {
+      height: 32px;
+      line-height: 32px;
+      bottom: 10px;
+      font-size: 9px;
+      letter-spacing: 0;
+    }
+
     .product-card-footer {
       font-size: 12px;
     }

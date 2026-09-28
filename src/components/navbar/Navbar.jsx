@@ -1,5 +1,5 @@
-import { React, Fragment, useContext } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { React, Fragment, useContext, useEffect } from "react";
+import { Outlet, Link, useLocation } from "react-router-dom";
 import { signOutUser } from "../../firebase";
 import "./navigation.styles.scss";
 import logo from "../../assets/eagles-logo-pin-badge.png";
@@ -15,7 +15,13 @@ import { signOut } from "firebase/auth";
 
 const Navbar = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
-  const { isCartOpen } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const { pathname } = useLocation();
+
+  // close the cart whenever the page changes
+  useEffect(() => {
+    setIsCartOpen(false);
+  }, [pathname, setIsCartOpen]);
 
   const signOutHandler = async () => {
     await signOutUser();
