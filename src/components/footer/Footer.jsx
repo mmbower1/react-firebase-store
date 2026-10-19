@@ -1,9 +1,15 @@
 "use client";
 
 import React from "react";
+import { useLocation } from "react-router-dom";
 import "./Footer.styles.scss";
 
 const Footer = () => {
+  const { pathname } = useLocation();
+
+  // no footer on the sign in / register page
+  if (pathname.startsWith("/auth")) return null;
+
   return (
     <footer className="footer">
       <div className="footer__container">
@@ -110,7 +116,7 @@ const Footer = () => {
           </div> */}
 
           <div className="footer__copyright">
-            <p>&copy; 2025 MB Tutorials. All rights reserved.</p>
+            <p>&copy; 2026 MB Tutorials. All rights reserved.</p>
           </div>
         </div>
 

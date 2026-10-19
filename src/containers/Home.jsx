@@ -5,6 +5,7 @@ import React from "react";
 
 // components
 
+import Hero from "../components/hero/Hero";
 import Categories from "../components/categories/Categories";
 
 const Home = () => {
@@ -28,7 +29,7 @@ const Home = () => {
 
   return (
     <div>
-      {" "}
+      <Hero />
       <Categories />
       {/* <form onSubmit={handleSave}>
         <label>Enter message</label>

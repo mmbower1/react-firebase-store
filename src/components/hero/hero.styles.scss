@@ -1,0 +1,102 @@
+$midnight-green: #004c54;
+$silver: #a5acaf;
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: 260px;
+  // same side margins as the category cards so the edges line up
+  margin: 0 7.5px 15px;
+  padding: 40px 50px;
+  border: 1px solid black;
+  color: white;
+  background: linear-gradient(115deg, #00262b 0%, $midnight-green 55%, #0b6b73 100%);
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 560px;
+  }
+
+  .hero-eyebrow {
+    margin-bottom: 10px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $silver;
+  }
+
+  .hero-title {
+    margin-bottom: 12px;
+    font-size: 48px;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  .hero-tagline {
+    margin-bottom: 28px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #d7dcdd;
+  }
+
+  // matches the inverted Button style
+  .hero-button {
+    display: inline-block;
+    padding: 0 35px;
+    line-height: 50px;
+    font-size: 12px;
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: black;
+    background-color: white;
+    border: 1px solid white;
+    transition: background-color 0.2s, color 0.2s;
+
+    &:hover {
+      background-color: transparent;
+      color: white;
+    }
+  }
+
+  // large faded logo on the right; the image has a white background,
+  // which multiply blends away so only the eagle shows as a darker emboss
+  .hero-logo {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    width: 380px;
+    transform: translateY(-50%) rotate(-8deg);
+    mix-blend-mode: multiply;
+    opacity: 0.45;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 0;
+    margin: 0 10px 15px;
+    padding: 30px 24px;
+    text-align: center;
+    justify-content: center;
+
+    .hero-title {
+      font-size: 32px;
+    }
+
+    .hero-tagline {
+      font-size: 13px;
+    }
+
+    .hero-logo {
+      right: 50%;
+      width: 260px;
+      transform: translate(50%, -50%) rotate(-8deg);
+      opacity: 0.3;
+    }
+  }
+}
