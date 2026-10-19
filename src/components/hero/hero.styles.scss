@@ -1,5 +1,4 @@
 $midnight-green: #004c54;
-$silver: #a5acaf;
 
 .hero {
   position: relative;
@@ -18,28 +17,6 @@ $silver: #a5acaf;
     position: relative;
     z-index: 1;
     max-width: 560px;
-  }
-
-  .hero-eyebrow {
-    margin-bottom: 10px;
-    font-size: 12px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: $silver;
-  }
-
-  .hero-title {
-    margin-bottom: 12px;
-    font-size: 48px;
-    line-height: 1.1;
-    text-transform: uppercase;
-  }
-
-  .hero-tagline {
-    margin-bottom: 28px;
-    font-size: 15px;
-    line-height: 1.6;
-    color: #d7dcdd;
   }
 
   // matches the inverted Button style
@@ -83,14 +60,6 @@ $silver: #a5acaf;
     padding: 30px 24px;
     text-align: center;
     justify-content: center;
-
-    .hero-title {
-      font-size: 32px;
-    }
-
-    .hero-tagline {
-      font-size: 13px;
-    }
 
     .hero-logo {
       right: 50%;
