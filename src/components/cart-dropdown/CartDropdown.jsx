@@ -27,7 +27,7 @@ const CartDropdown = () => {
           display: "flex",
           flexDirection: "column",
           padding: "20px",
-          border: "1px solid #c9d6d3",
+          border: "3px solid black",
           backgroundColor: "#eef3f2",
           boxShadow: "0 10px 25px rgba(0, 0, 0, 0.18)",
           top: "160px",
